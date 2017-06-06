@@ -1,4 +1,4 @@
-const batteryBatches = [4, 5, 3, 4, 4, 6, 5];
+const batteryBatches = [4, 5, 3, 4, 4, 6, 5]
 
 const monologueLines = [
   'Who are you talking to right now?',
@@ -15,4 +15,14 @@ const monologueLines = [
   'A guy opens his door and gets shot and you think that of me?',
   'No.',
   'I am the one who knocks!'
-];
+]
+
+const totalBatteries = batteryBatches.reduce(function (acc, val) {
+  return acc + val
+}, 0)
+
+const wordCountMap = monologueLines.reduce(function (acc, val) {
+  let lineLen = val.split(' ').length
+  acc[lineLen] ? acc[lineLen] += 1 : acc[lineLen] = 1
+  return acc
+}, {})
